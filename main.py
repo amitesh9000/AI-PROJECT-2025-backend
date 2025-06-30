@@ -16,11 +16,12 @@ app = FastAPI()
 # Allow frontend to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000","https://www.amitesh4u.in/","https://www.amitesh4u.in","amitesh4u.in"],  # frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # Request body model
 class TextRequest(BaseModel):
     text: str
