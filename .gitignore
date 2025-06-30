@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# VS Code settings (optional)
+.vscode/
+
+# Uvicorn log files (optional)
+*.log
