@@ -31,11 +31,16 @@ async def summarize(req: TextRequest):
     prompt = f"Summarize the following text:\n{req.text}"
     try:
         response = client.responses.create(
-    model="gpt-4o-mini",
-    instructions="You are an expert in summarising. your task is to summarise everything i give you, summarise it very shortly",
-    input=prompt,
-)
+            model="gpt-4o-mini",
+            instructions="You are an expert in summarising. your task is to summarise everything i give you, summarise it very shortly",
+            input=prompt,
+        )
         summary = response.output_text
         return {"summary": summary}
     except Exception as e:
         return {"summary": f"Error: {str(e)}"}
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
